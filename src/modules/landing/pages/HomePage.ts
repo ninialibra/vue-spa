@@ -10,11 +10,14 @@ import {
   onRenderTracked,
   onRenderTriggered,
   onUnmounted,
-  onUpdated
+  onUpdated,
+  ref
 } from 'vue'
 
 export default defineComponent({
   setup: () => {
+    const counter = ref(0)
+
     onMounted(() => {
       console.log('onMounted')
     })
@@ -49,5 +52,9 @@ export default defineComponent({
     onDeactivated(() => {
       console.log('onDeactivated')
     })
+
+    return {
+      counter
+    }
   }
 })
